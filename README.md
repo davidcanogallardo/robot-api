@@ -1,8 +1,10 @@
 # Instrucciones
 **Ejecuta:**
-1. ``composer install``
-2. ``cp .env.example .env``
-3. ``php artisan key:generate``
-4. ``php artisan migrate``
-5. ``php artisan db:seed --class=RobotSeeder``
-6. ``php artisan serve``
+```bash
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+php artisan db:seed --class=RobotSeeder
+php artisan serve
+```
