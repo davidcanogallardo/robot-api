@@ -21,7 +21,7 @@
     <script>
         $.ajax({
           type: "GET",
-          url: "http://robot2.nullpointer.cat/api/robot",
+          url: "http://localhost:2020/api/robot",
         }).done((data) => {
             console.log(data);
             options.amarillo = data.amarillo
@@ -211,7 +211,7 @@
         function get() {
             $.ajax({
             type: "GET",
-            url: "http://robot2.nullpointer.cat/api/robot",
+            url: "http://localhost:2020/api/robot",
             }).done((data) => {
                 console.log(data);
                 options.amarillo = data.amarillo
