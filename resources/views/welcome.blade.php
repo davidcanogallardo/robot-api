@@ -229,9 +229,10 @@
 
         animate();
     </script>
-    <button onclick="update()">Subir posiciones brazo</button>
+    <button onclick="update()">Subir posiciones brazo al servidor</button>
     <br>
-    <button onclick="get()">Actualizar posiciones brazo</button>
+    <button onclick="get()">Bajar posiciones brazo del servidor</button>
+
 
 </body>
 </html>
