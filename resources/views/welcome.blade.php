@@ -4,20 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>111</title>
     
     <script src="https://threejs.org/build/three.js"></script>
     <script src="{{ asset('js/stats.js') }}"></script>
     <script src="{{ asset('js/dat.gui.js') }}"></script>
     <script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-
+    <style>
+    body { margin: 0; }
+    canvas { width: 70vw !important; height: 70vh !important; display: block; }
+    button { font-size: 30px; }
+    </style>
 </head>
 <body>
     <script>
         $.ajax({
           type: "GET",
-          url: "http://localhost:2020/api/robot",
+          url: "http://robot2.nullpointer.cat/api/robot",
         }).done((data) => {
             console.log(data);
             options.amarillo = data.amarillo
@@ -191,7 +195,7 @@
             for (const [axis, grados] of Object.entries(options)) {
                 $.ajax({
                     type: "POST",
-                    url: "http://localhost:2020/api/update/"+axis+"/"+grados,
+                    url: "https://robot2.nullpointer.cat/api/update/"+axis+"/"+grados,
                 }).done((data) => {
                     console.log(data);
                     options.amarillo = data.amarillo
@@ -203,9 +207,31 @@
                 });
             }
         }
-        window.setInterval(update, 7000);
+
+        function get() {
+            $.ajax({
+            type: "GET",
+            url: "http://robot2.nullpointer.cat/api/robot",
+            }).done((data) => {
+                console.log(data);
+                options.amarillo = data.amarillo
+                options.rojo = data.rojo
+                options.rosa = data.rosa
+                options.naranja = data.naranja
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                console.error(jqXHR);
+            });            
+
+        }
+
+        {{-- window.setInterval(get, 5000);
+        window.setInterval(update, 20000); --}}
 
         animate();
     </script>
+    <button onclick="update()">Subir posiciones brazo</button>
+    <br>
+    <button onclick="get()">Actualizar posiciones brazo</button>
+
 </body>
 </html>
