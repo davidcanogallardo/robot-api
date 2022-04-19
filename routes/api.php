@@ -14,10 +14,6 @@ use App\Models\Robot;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::get('/bitches', function (Request $request) {
-    return "sum bitches";
-});
 Route::get('/robot', function (Request $request) {
     return Robot::find(1);
 });
